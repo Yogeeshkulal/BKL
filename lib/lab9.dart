@@ -21,23 +21,8 @@ class Home extends StatelessWidget {
               SnackBar(content: Text('${product[i]['name']} added'))),
           child: Text('Add'),
         ),
-        onTap: () => Navigator.push(context,
-            MaterialPageRoute(builder: (_) => Detail(product: product[i]))),
       ),
     ),
   );
 }
 
-class Detail extends StatelessWidget {
-  final Map<String, String> product;
-  Detail({required this.product});
-
-  @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(product['name']!)),
-    body: Center(child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [Text(product['name']!), Text('\$${product['price']}')],
-    )),
-  );
-}

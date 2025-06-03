@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-void main() => runApp(MaterialApp(home: StopwatchApp()));
+void main() => runApp(MaterialApp(home: StopwatchApp(),debugShowCheckedModeBanner: false,));
 class StopwatchApp extends StatefulWidget {
   @override
   State<StopwatchApp> createState() => _StopwatchAppState();
@@ -13,6 +13,7 @@ class _StopwatchAppState extends State<StopwatchApp> {
   void initState() {
     super.initState();
     _t = Timer.periodic(Duration(milliseconds: 100), (_) {
+
       if (_sw.isRunning) {
         final ms = _sw.elapsedMilliseconds;
         setState(() => _time =

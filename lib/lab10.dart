@@ -11,7 +11,8 @@ class animatedlogostate extends State<Animatedlogo> with SingleTickerProviderSta
   void initState(){
     super.initState();
     controller=AnimationController(vsync:this,duration:Duration(seconds: 2));
-    animation=Tween(begin:Offset.zero ,end: Offset(0,-2)).animate(
+    animation=Tween(begin:Offset.zero ,end: Offset(0,-2))
+        .animate(
       CurvedAnimation(parent: controller,curve:Curves.easeInOut),
     );
     controller.repeat(reverse: true);
@@ -25,5 +26,6 @@ class animatedlogostate extends State<Animatedlogo> with SingleTickerProviderSta
  Widget build(BuildContext context)=>Scaffold(
    body: Center(child: SlideTransition(position: animation,child:FlutterLogo(size: 100))),
  );
+
 
 }

@@ -1,19 +1,15 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
 void main() => runApp(MaterialApp(home: WeatherApp()));
-
 class WeatherApp extends StatefulWidget {
   @override
   State<WeatherApp> createState() => _WeatherAppState();
 }
-
 class _WeatherAppState extends State<WeatherApp> {
   final _controller = TextEditingController();
   String _result = '';
   final _apiKey = '0830225e3b25a0708dd3a3720b39f071'; // Replace with your key
-
   Future<void> _fetchWeather() async {
     final city = _controller.text;
     final url = 'https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$_apiKey';
@@ -31,13 +27,11 @@ class _WeatherAppState extends State<WeatherApp> {
       setState(() => _result = 'Error');
     }
   }
-
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(title: Text('Weather')),
-    body: Padding(
-      padding: EdgeInsets.all(16),
-      child: Column(
+    body: Center(
+    child: Column(
         children: [
           TextField(controller: _controller, decoration: InputDecoration(hintText: 'Enter city')),
           SizedBox(height: 10),
